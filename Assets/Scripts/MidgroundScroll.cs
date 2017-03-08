@@ -5,13 +5,18 @@ using UnityEngine;
 public class MidgroundScroll : MonoBehaviour {
 
     public float speed;
-    Renderer myRenderer;
+    public float loopspot = 16f;
+    Transform myTransform;
 
     void Start () {
-        myRenderer = GetComponent<Renderer>();
+        myTransform = transform;
     }
 
     void FixedUpdate () {
-        myRenderer.material.mainTextureOffset += Vector2.right * speed * Time.fixedDeltaTime;
+        myTransform.position += Vector3.left * speed * Time.fixedDeltaTime;
+        if (myTransform.position.x < -loopspot)
+        {
+            myTransform.position += Vector3.right * loopspot * 2;
+        }
     }
 }
