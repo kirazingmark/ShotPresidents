@@ -15,6 +15,9 @@ public class Player : MonoBehaviour {
     public float rubberbandGapLength = 5f;
     public AnimationCurve rubberbandCurve;
     public float curveDistance = 3f;
+
+    public float upwardGravityScale = 3f;
+    public float fallingGravityScale = 5f;
     
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +50,13 @@ public class Player : MonoBehaviour {
                 }
             }
         }
-        Debug.DrawRay(myTransform.position + (Vector3.up * 0.5f) + (Vector3.right * 0.5f), Vector2.right * rubberbandGapLength, Color.green, 0f);
+
+        if (rb.velocity.y > 0) {
+            rb.gravityScale = upwardGravityScale;
+        } else {
+            rb.gravityScale = fallingGravityScale;
+        }
+
+        //Debug.DrawRay(myTransform.position + (Vector3.up * 0.5f) + (Vector3.right * 0.5f), Vector2.right * rubberbandGapLength, Color.green, 0f);
 	}
 }

@@ -65,6 +65,7 @@ public class SpectrumAnalyzer : MonoBehaviour
             //Move pillars up by scale/2
             Vector3 pos = pillars[i].transform.position;
             pos.y = previousScale.y*.5f;
+            pos.z = 2.5f;
             pillars[i].transform.position = pos;
         }
     }
