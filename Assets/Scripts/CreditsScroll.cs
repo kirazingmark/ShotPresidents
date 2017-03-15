@@ -9,7 +9,8 @@ public class CreditsScroll : MonoBehaviour {
     public float duration;
     public Vector3 direction;
 
-    float elapsedTime = 0.0f;
+    float elapsedTime = 999.99f;
+    public GameObject CreditsObject;
 
     //// Use this for initialization
     //void Start () {
@@ -22,12 +23,24 @@ public class CreditsScroll : MonoBehaviour {
 
         if (elapsedTime < duration)
         {
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            Debug.Log("Test");
+            speed = 62.0f;
+            CreditsObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
         }
         else if (elapsedTime > duration)
         {
             speed = 0.0f;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log(collision.gameObject.tag);
+            elapsedTime = 0.0f;
         }
     }
 }
