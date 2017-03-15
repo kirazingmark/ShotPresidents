@@ -17,7 +17,7 @@ public class BlimpWobble : MonoBehaviour {
     void Awake()
     {
         myTransform = transform;
-        startPos = myTransform.position;
+        startPos = myTransform.localPosition;
         prevPos = startPos;
         RandomisePosition();
     }
@@ -31,7 +31,7 @@ public class BlimpWobble : MonoBehaviour {
             RandomisePosition();
         }
 
-        myTransform.position = Vector3.LerpUnclamped(prevPos, wobblePos, ease.Evaluate(wobbletime));
+        myTransform.localPosition = Vector3.LerpUnclamped(prevPos, wobblePos, ease.Evaluate(wobbletime));
 	}
 
     void RandomisePosition ()
