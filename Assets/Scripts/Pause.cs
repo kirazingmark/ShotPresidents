@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour {
 
     public GameObject pauseButton, pausePanel;
+    public AudioSource music;
     public int scene = SceneManager.GetActiveScene().buildIndex;
 
     // Use this for initialization
@@ -22,6 +23,7 @@ public class Pause : MonoBehaviour {
     {
         pausePanel.SetActive(true);
         pauseButton.SetActive(false);
+        music.Pause();
         Time.timeScale = 0;
     }
 
@@ -29,6 +31,7 @@ public class Pause : MonoBehaviour {
     {
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
+        music.Play();
         Time.timeScale = 1;
     }
 
