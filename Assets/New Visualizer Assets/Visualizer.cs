@@ -26,7 +26,7 @@ public class Visualizer : MonoBehaviour {
     private float sampleRate;
 
     private Transform[] visualList;
-    private float[] visualScale;
+    public float[] visualScale;
     public int amnVisual = 256;
     public GameObject[] psGameObject;
     private ParticleSystem[] particlesystems;
