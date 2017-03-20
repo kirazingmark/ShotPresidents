@@ -12,7 +12,18 @@ public class PlayVideo : MonoBehaviour {
     void Awake () {
         tex = new WebGLMovieTexture(videoPath);
         gameObject.GetComponent<MeshRenderer>().material.mainTexture = tex;
+    }
+
+    void Start() {
+        StartCoroutine(WaitToPlay());
+    }
+
+    IEnumerator WaitToPlay()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(58);
         tex.Play();
+        print(Time.time);
     }
 
     void Update () {
