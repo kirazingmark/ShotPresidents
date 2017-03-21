@@ -8,9 +8,14 @@ public class Pause : MonoBehaviour {
     public GameObject pauseButton, pausePanel;
     public AudioSource music;
     public int scene = SceneManager.GetActiveScene().buildIndex;
+    public PlayVideo playVideo;
+
+    public void Awake () {
+        playVideo = new PlayVideo();
+    }
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         OnUnPause();
 	}
 
@@ -24,6 +29,7 @@ public class Pause : MonoBehaviour {
         pausePanel.SetActive(true);
         pauseButton.SetActive(false);
         music.Pause();
+        playVideo.OnPause();
         Time.timeScale = 0;
     }
 
@@ -32,6 +38,7 @@ public class Pause : MonoBehaviour {
         pausePanel.SetActive(false);
         pauseButton.SetActive(true);
         music.Play();
+        playVideo.OnUnPause();
         Time.timeScale = 1;
     }
 
