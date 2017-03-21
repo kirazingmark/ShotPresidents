@@ -21,7 +21,7 @@ public class PlayVideo : MonoBehaviour {
     IEnumerator WaitToPlay()
     {
         print(Time.time);
-        yield return new WaitForSeconds(58);
+        yield return new WaitForSeconds(2);
         tex.Play();
         print(Time.time);
     }
