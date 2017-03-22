@@ -6,6 +6,7 @@ public class BlockMove : MonoBehaviour {
 
     float speed;
     Transform myTransform;
+    public float minX = -16f;
     
 	void Start () {
         speed = GameManager.instance.blockSpeed;
@@ -14,5 +15,8 @@ public class BlockMove : MonoBehaviour {
 	
 	void FixedUpdate () {
         myTransform.localPosition += Vector3.left * speed * Time.fixedDeltaTime;
+        if (myTransform.position.x < minX) {
+            Destroy(gameObject);
+        }
 	}
 }

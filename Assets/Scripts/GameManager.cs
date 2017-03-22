@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake () {
         index = PlayerPrefs.GetInt("Character"); // 0 = AWOL, 1 = HESHER, 2 = JIGGY MIGGY
-        print(index);
+        //print(index);  // Index of currently selected player
 
         instance = this;
 	}

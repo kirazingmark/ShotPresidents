@@ -34,7 +34,7 @@ public class LoadXMLFile : MonoBehaviour {
             XmlNode double_val = node.FirstChild;
             beatTimes = double_val.InnerXml;
             convertedData = Convert.ToDouble(beatTimes);
-            print(beatTimes);
+            //print(beatTimes);
             //Console.WriteLine(convertedData);
             int index = 0;
             while (index < 782)
@@ -42,7 +42,7 @@ public class LoadXMLFile : MonoBehaviour {
                 XmlNode nextNode = double_val.NextSibling;
                 beatTimes = nextNode.InnerXml;
                 convertedData = Convert.ToDouble(beatTimes);
-                print(beatTimes);
+                //print(beatTimes);
                 index++;
             }
         }
