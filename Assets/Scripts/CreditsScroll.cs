@@ -12,11 +12,6 @@ public class CreditsScroll : MonoBehaviour {
     float elapsedTime = 999.99f;
     public GameObject CreditsObject;
 
-    //// Use this for initialization
-    //void Start () {
-
-    //}
-
     // Update is called once per frame
     void Update () {
         // transform.Translate(Vector3.down * speed * Time.deltaTime);

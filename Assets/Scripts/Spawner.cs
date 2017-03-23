@@ -9,10 +9,12 @@ public class Spawner : MonoBehaviour {
     public GameObject[] whatToSpawnClone;
 
     void Start () {
+
         SpawnPlayer();
     }
 
     void SpawnPlayer() {
+
         whatToSpawnClone[0] = Instantiate(whatToSpawnPrefab[0], spawnLocations[0].transform.position, Quaternion.Euler(0,0,0)) as GameObject;
     }
 }
