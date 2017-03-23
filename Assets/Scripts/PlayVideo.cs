@@ -19,7 +19,7 @@ public class PlayVideo : MonoBehaviour {
 
     IEnumerator WaitToPlay () {
         print(Time.time);
-        yield return new WaitForSeconds(2); // Will update wait time to 58 seconds later, set to 2 seconds for testing.
+        yield return new WaitForSeconds(58); // Will update wait time to 58 seconds later, set to 2 seconds for testing.
         tex.Play();
         print(Time.time);
     }

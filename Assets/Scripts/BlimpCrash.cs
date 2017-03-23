@@ -12,11 +12,13 @@ public class BlimpCrash : MonoBehaviour {
     public Vector3 startPosition;
     public Vector3 finalPosition;
     public float travelTime = 40f;
+    public float startDelay = 58f;
     Transform myTransform;
 
     Quaternion crashRot;
     bool isCrashing = false;
     float curTime = 0f;
+    float startTime;
 
     public GameObject explosionPrefab;
     bool hasExploded = false;
@@ -26,6 +28,7 @@ public class BlimpCrash : MonoBehaviour {
 	void Start () {
         crashRot = Quaternion.Euler(Vector3.back * crashAngle);
         myTransform = transform;
+        startTime = Time.time + startDelay;
 	}
 	
 	void FixedUpdate () {
@@ -42,7 +45,7 @@ public class BlimpCrash : MonoBehaviour {
                     Destroy(gameObject);
                 }
             }
-        } else {
+        } else if (Time.time > startTime) {
             curTime += Time.deltaTime / travelTime;
             myTransform.position = Vector3.Lerp(startPosition, finalPosition, curTime);
             if (curTime >= 1) {

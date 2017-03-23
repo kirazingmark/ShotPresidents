@@ -7,7 +7,7 @@ public class Pause : MonoBehaviour {
 
     public GameObject pauseButton, pausePanel;
     public AudioSource music;
-    public int scene = SceneManager.GetActiveScene().buildIndex;
+    //public int scene = SceneManager.GetActiveScene().buildIndex;
     //public PlayVideo playVideo;
 
     //public void Awake () {
@@ -48,9 +48,9 @@ public class Pause : MonoBehaviour {
     
     }
 
-    public void OnRestartClick()
+    /*public void OnRestartClick()
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
         Time.timeScale = 1;
-    }
+    }*/
 }
