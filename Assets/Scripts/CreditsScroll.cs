@@ -6,7 +6,7 @@ public class CreditsScroll : MonoBehaviour {
 
     // VARIABLES AND CONSTANTS.
     public float speed;
-    public float duration;
+    public float duration = 18.0f;
     public Vector3 direction;
 
     float elapsedTime = 999.99f;
@@ -14,26 +14,23 @@ public class CreditsScroll : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        // transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        if (elapsedTime < duration)
-        {
-            Debug.Log("Test");
+        if (elapsedTime < duration) {
+
             speed = 62.0f;
             CreditsObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
         }
-        else if (elapsedTime > duration)
-        {
+        else if (elapsedTime > duration) {
+
             speed = 0.0f;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
+    void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.gameObject.tag == "Player")
-        {
+        if (collision.gameObject.tag == "Player") {
+
             Debug.Log(collision.gameObject.tag);
             elapsedTime = 0.0f;
         }
