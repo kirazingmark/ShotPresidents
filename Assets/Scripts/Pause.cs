@@ -12,8 +12,11 @@ public class Pause : MonoBehaviour {
     // Use this for initialization
     public void Start () {
 
-        OnUnPause();
-	}
+        pausePanel.SetActive(false);
+        pauseButton.SetActive(true);
+        music.Play();
+        Time.timeScale = 1;
+    }
 
     public void OnPause() {
 
@@ -22,14 +25,6 @@ public class Pause : MonoBehaviour {
         music.Pause();
         Time.timeScale = 0;
     }
-
-    //public void OnUnPause() {
-
-    //    pausePanel.SetActive(false);
-    //    pauseButton.SetActive(true);
-    //    music.Play();
-    //    Time.timeScale = 1;
-    //}
 
     public void OnClick() {
 
